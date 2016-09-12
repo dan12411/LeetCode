@@ -100,7 +100,9 @@ isUgly(0)
 /* 將n裡面的2,3,5因子除掉，最後如果還有剩下其他因子，這個數字就不是ugly number
  */
 
-// AR 4 - Move Zeros
+///////////////////////
+///AR 4 - Move Zeros///
+///////////////////////
 
 func moveZeroes(nums: [Int]) -> [Int] {
     var numsNew = nums
@@ -114,7 +116,7 @@ func moveZeroes(nums: [Int]) -> [Int] {
             }
         }
     }
-    while(count > 0) {
+    while count > 0 {
         numsNew[numsNew.count - count] = 0
         count -= 1
     }
@@ -122,7 +124,7 @@ func moveZeroes(nums: [Int]) -> [Int] {
 }
 
 // another solution
-func moveZeroes2(nums: [Int]) {
+func moveZeroes2(nums: [Int]) -> [Int] {
     var numss = nums
     var j = 0
     for num in numss {
@@ -132,12 +134,21 @@ func moveZeroes2(nums: [Int]) {
         }
     }
     numss.replaceRange(Range(j..<numss.count), with: Array(count: numss.count-j, repeatedValue: 0))
+    return numss
 }
+
+///tets result///
 
 moveZeroes([0,1,0,3,12])
 moveZeroes2([0,1,0,3,12])
 
-// AR 5 - Valid Anagram
+/* 第一種解法：先用迴圈把非零的換進矩陣新位置，再把零填進矩陣尾部
+   第二種解法：用.replaceRange把零帶進去
+ */
+
+//////////////////////////
+///AR 5 - Valid Anagram///
+//////////////////////////
 
 func isAnagram(s: String, t: String) -> Bool {
     
@@ -161,11 +172,17 @@ func isAnagram(s: String, t: String) -> Bool {
     return dicS == dicT
 }
 
+
+///tets result///
 isAnagram("car", t: "rat")
+isAnagram("car", t: "rac")
 
+/* 先比對字串數是否相同，再用記分板計算各字母數是否相同
+ */
 
-
-// AR 6 - Majority Element
+/////////////////////////////
+///AR 6 - Majority Element///
+/////////////////////////////
 
 func majorityElement(nums: [Int]) -> Int {
     var numsDictionary:[Int:Int] = [Int:Int]()
@@ -185,9 +202,16 @@ func majorityElement(nums: [Int]) -> Int {
     return majority!
 }
 
+///test result///
 majorityElement([1,2,4,4,4])
 
-// AR 7 - Remove Duplicates from Sorted Array
+/* 一樣用記分板，再篩選出過半的數字
+ */
+
+
+////////////////////////////////////////////////
+///AR 7 - Remove Duplicates from Sorted Array///
+////////////////////////////////////////////////
 
 func removeDuplicates(nums: [Int]) -> Int {
     var numsNew = nums
@@ -204,13 +228,20 @@ func removeDuplicates(nums: [Int]) -> Int {
   return j + 1
 }
 
+
+///test result///
 removeDuplicates([])
 removeDuplicates([1])
 removeDuplicates([1,1,2])
 removeDuplicates([1,2,3,3,4])
 
+/* 用迴圈去比對i & i+1值，是否矩陣是遞增，並記錄次數
+ */
 
-// AR 8 - Single Number
+
+//////////////////////////
+///AR 8 - Single Number///
+//////////////////////////
 
 func singleNumber(nums: [Int]) -> Int {
     var numss = nums
@@ -230,11 +261,17 @@ func singleNumber(nums: [Int]) -> Int {
     }
     return single!
 }
-print(singleNumber([-1,-1,-2]))
 
+///test result///
+singleNumber([-1,-1,-2])
 
+/* 用記分板，再篩選出值為一的key
+ */
 
-// AR 9 - Best Time to Buy and Sell Stock
+////////////////////////////////////////////
+///AR 9 - Best Time to Buy and Sell Stock///
+////////////////////////////////////////////
+
 func maxProfit(prices: [Int]) -> Int {
     var minPrice = Int.max
     var maxProfit = 0
@@ -245,5 +282,7 @@ func maxProfit(prices: [Int]) -> Int {
     }
     return maxProfit
 }
+
+///test result///
 maxProfit([1,1,7,6,5,4,3])
 
