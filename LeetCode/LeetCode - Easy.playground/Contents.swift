@@ -1,17 +1,18 @@
 //: Playground - noun: a place where people can play
 
- 
-// AR 1 - Power of Two
+/////////////////////////
+///AR 1 - Power of Two///
+/////////////////////////
 
 func isPowerOfTwo(num: Int) -> Bool {
-    var n = num                            //需宣告一變數，紀錄while處理初始值的變化
+    var n = num
     if n == 0 {
         return false
     } else {
-      while n % 2 == 0 {                   //用while迴圈去除2，並在n除到小於2時停止
+      while n % 2 == 0 {
           n = n / 2
       }
-      if n == 1 {                          //判斷n
+      if n == 1 {
           return true
       }
       else {
@@ -20,14 +21,19 @@ func isPowerOfTwo(num: Int) -> Bool {
     }
 }
 
+///test result///
+
 print(isPowerOfTwo(0))
 print(isPowerOfTwo(1))
 print(isPowerOfTwo(-3))
 print(isPowerOfTwo(16))
 
+/* 如將n裡面的2因子除掉，最後如果還有剩下其他因子，這個數字就不是二的次方
+ */
 
-// AR 2 - Contains Duplicate
-
+///////////////////////////////
+///AR 2 - Contains Duplicate///
+///////////////////////////////
 
 func containsDuplicate(nums:[Int]) -> Bool {
     var numsDictionary:[Int:Int] = [Int:Int]()
@@ -46,11 +52,17 @@ func containsDuplicate(nums:[Int]) -> Bool {
     return false
 }
 
+///test result///
+
 containsDuplicate([1,2,3,3,4])
 containsDuplicate([1])
 
+/* 用計分板紀錄出現次數值，如果大於二為真
+ */
 
-// AR 3 - Ugly Number
+////////////////////////
+///AR 3 - Ugly Number///
+////////////////////////
 
 func isUgly(num: Int) -> Bool {
     if num <= 0 {
@@ -78,10 +90,15 @@ func isUgly(num: Int) -> Bool {
     }
 }
 
+///test result///
+
 isUgly(1)
 isUgly(5)
 isUgly(13)
 isUgly(0)
+
+/* 將n裡面的2,3,5因子除掉，最後如果還有剩下其他因子，這個數字就不是ugly number
+ */
 
 // AR 4 - Move Zeros
 
